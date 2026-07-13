@@ -29,7 +29,7 @@ const links = [
     </button>
   </nav>
 
-  <div id="mobile-menu" class="mx-auto mt-1 flex w-[94%] max-w-[85rem] flex-col gap-1 overflow-hidden rounded-2xl border border-neutral-300 bg-neutral-100 p-0 shadow-lg transition-all duration-300 md:hidden" style="max-height:0">
+  <div id="mobile-menu" class="mx-auto mt-1 flex w-[94%] max-w-[85rem] flex-col gap-1 overflow-hidden rounded-2xl bg-neutral-100 p-0 shadow-lg transition-all duration-300 md:hidden" style="max-height:0">
     {links.map((l) => (
       <a class="rounded-lg px-3 py-2.5 text-neutral-800 transition hover:bg-white hover:text-orange-600" href={l.href}>{l.label}</a>
     ))}
@@ -44,9 +44,11 @@ const links = [
     const open = menu.style.maxHeight && menu.style.maxHeight !== '0px';
     if (open) {
       menu.style.maxHeight = '0px';
+      menu.classList.remove('border', 'border-neutral-300');
       btn.setAttribute('aria-expanded', 'false');
     } else {
       menu.style.maxHeight = '500px';
+      menu.classList.add('border', 'border-neutral-300');
       btn.setAttribute('aria-expanded', 'true');
     }
   }
